@@ -3,15 +3,15 @@ import { Container, Loader } from 'semantic-ui-react'
 import Content from './Components/Content.js'
 import Header from './Components/Header/Header.js'
 
-function App() {
+function App() {//FIXME il y a un stash à recup sur branche HOC...
   const [request, setRequest] = useState(false)
   const [list, setList] = useState([])
 
-  const withFetchedData = props => {
+  const withFetchedData = (category) => {console.log(category);
     setRequest(true)
     try {
       async function fetchData() {
-        const response = await fetch(`http://swapi.dev/api/people/?page=1`)
+        const response = await fetch(`http://swapi.dev/api/${category}/?page=1`)
         const data = await response.json()
         setList(data.results)
       }

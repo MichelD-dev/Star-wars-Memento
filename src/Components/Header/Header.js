@@ -2,8 +2,8 @@ import { Image, Menu } from 'semantic-ui-react'
 // import styles from './Header.module.css'
 
 const Header = ({test}) => {
-  const handleClick = () => {
-    test()
+  const handleClick = (category) => {
+    test(category)
   }
 
   return (
@@ -22,11 +22,11 @@ const Header = ({test}) => {
         />
       </Menu.Item>
       <Menu.Menu position='right'>
-        <Menu.Item onClick={handleClick}>
+        <Menu.Item onClick={() =>handleClick('planets')}>
           Planets
         </Menu.Item>
-        <Menu.Item onClick={handleClick}>People</Menu.Item>
-        <Menu.Item link>Ships</Menu.Item>
+        <Menu.Item onClick={() =>handleClick('people')}>People</Menu.Item>
+        <Menu.Item onClick={() =>handleClick('ships')}>Ships</Menu.Item>
       </Menu.Menu>
       <Menu.Item></Menu.Item>
     </Menu>
