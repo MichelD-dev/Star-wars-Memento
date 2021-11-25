@@ -1,5 +1,6 @@
 import { Grid, Container } from 'semantic-ui-react'
 import DataList from './List'
+import HOC from '../HOC'
 
 const Content = ({ list }) => {
   return (
@@ -26,4 +27,6 @@ const Content = ({ list }) => {
   )
 }
 
-export default Content
+const withFetchedDataComponent = HOC(Content, 'people')
+
+export default withFetchedDataComponent

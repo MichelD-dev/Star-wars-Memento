@@ -14,17 +14,17 @@ function App() {
     }
     setRequest(true)
     setFetched([...fetched, category])
-    try {
-      async function fetchData() {
-        const response = await fetch(`http://swapi.dev/api/${category}`)
-        const data = await response.json()
-        setList([...list, [...data.results]])
-        setRequest(false)
-      }
-      fetchData()
-    } catch (e) {
-      console.log(e.message)
-    }
+    // try {
+    //   async function fetchData() {
+    //     const response = await fetch(`http://swapi.dev/api/${category}`)
+    //     const data = await response.json()
+    //     setList([...list, [...data.results]])
+    //     setRequest(false)
+    //   }
+    //   fetchData()
+    // } catch (e) {
+    //   console.log(e.message)
+    // }
   }
   // useEffect(() => {
   //   console.log(fetched)
@@ -43,7 +43,7 @@ function App() {
           </Loader>
         </Dimmer>
       ) : (
-        <Content list={list} />
+        <withFetchedDataComponent list={list} />
       )}
     </Container>
   )
