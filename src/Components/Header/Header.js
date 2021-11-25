@@ -1,9 +1,8 @@
 import { Image, Menu } from 'semantic-ui-react'
-// import styles from './Header.module.css'
 
 const Header = ({ fetch }) => {
-  const handleClick = category => {
-    fetch(category)
+  const handleClick = (category, catId) => {
+    fetch(category, catId)
   }
 
   return (
@@ -13,23 +12,32 @@ const Header = ({ fetch }) => {
       fixed='top'
       stackable
       inverted
-      style={{ paddingTop: '2rem' }}
+      style={{ padding: '2rem 4rem 0' }}
     >
       <Menu.Item>
         <Image
-          src='..\assets\images\Star-Wars-Logo.png'
+          wrapped
+          size='small'
+          src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Star_Wars_Yellow_Logo.svg/1280px-Star_Wars_Yellow_Logo.svg.png'
           verticalAlign='middle'
         />
       </Menu.Item>
       <Menu.Menu position='right'>
-        <Menu.Item onClick={() => handleClick('films')}>Films</Menu.Item>
-        <Menu.Item onClick={() => handleClick('planets')}>Planètes</Menu.Item>
-        <Menu.Item onClick={() => handleClick('people')}>Personnes</Menu.Item>
-        <Menu.Item onClick={() => handleClick('starships')}>Vaisseaux</Menu.Item>
-        <Menu.Item onClick={() => handleClick('vehicles')}>Vehicules</Menu.Item>
-        <Menu.Item onClick={() => handleClick('species')}>Espèces</Menu.Item>
+        <Menu.Item onClick={() => handleClick('films', 1)}>Films</Menu.Item>
+        <Menu.Item onClick={() => handleClick('planets', 2)}>
+          Planètes
+        </Menu.Item>
+        <Menu.Item onClick={() => handleClick('people', 3)}>
+          Personnes
+        </Menu.Item>
+        <Menu.Item onClick={() => handleClick('starships', 4)}>
+          Vaisseaux
+        </Menu.Item>
+        <Menu.Item onClick={() => handleClick('vehicles', 5)}>
+          Vehicules
+        </Menu.Item>
+        <Menu.Item onClick={() => handleClick('species', 6)}>Espèces</Menu.Item>
       </Menu.Menu>
-      <Menu.Item></Menu.Item>
     </Menu>
   )
 }

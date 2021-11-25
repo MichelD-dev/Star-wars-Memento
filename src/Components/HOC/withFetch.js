@@ -1,28 +1,23 @@
 import { useEffect, useState } from 'react'
 
-function withFetch(WrappedComponent, category) {
+function withFetch(WrappedComponent) {
   const WithFetch = props => {
     const [data, setData] = useState([])
     const [isLoading, setIsLoading] = useState(false)
     const [isError, setIsError] = useState(false)
 
     useEffect(() => {
-      if (category) fetchData(category)
-    }, [])
-
-    // useEffect(() => console.log(data), [])
+      if (props.category) fetchData(props.category.category)
+    }, [props.category])
 
     const fetchData = async category => {
-      setIsLoading(true)
-      setIsError(false)
-
+   
       try {
-        const response = await fetch( `http://swapi.dev/api/${category}/?page=1`)
+        const response = await fetch(`http://swapi.dev/api/${category}`)
         if (response.ok) {
-          const data = await response.json()
-
-          setIsLoading(false)
-          setData(data)
+          const json = await response.json()
+          setData([...data, json])
+          setIsLoading(true)
         } else {
           throw new Error('Fetch request error')
         }
@@ -33,13 +28,15 @@ function withFetch(WrappedComponent, category) {
     }
 
     return (
-      <WrappedComponent
-        data={data}
-        isLoading={isLoading}
-        isError={isError}
-        {...props}
-        getData={category => fetchData(category)}
-      />
+      isLoading && (
+        <WrappedComponent
+          data={data}
+          isLoading={isLoading}
+          isError={isError}
+          {...props}
+          cat={props.category.category}
+        />
+      )
     )
   }
 
