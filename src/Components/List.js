@@ -1,11 +1,11 @@
 import { Segment, List } from 'semantic-ui-react'
 
-const DataList = ({ list = [] }) => {
+const DataList = ({ category }) => {
   return (
     <Segment inverted style={{ opacity: '.8' }}>
       <List selection inverted divided size='big'>
-        {list.map(item => (
-          <List.Item key={item.name}>{item.name}</List.Item>
+        {category.map((item, i) => (
+          <List.Item key={`name_${i}`}>{item.name || item.title}</List.Item>
         ))}
       </List>
     </Segment>

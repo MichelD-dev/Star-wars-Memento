@@ -10,7 +10,7 @@ function withFetch(WrappedComponent, category) {
       if (category) fetchData(category)
     }, [])
 
-    useEffect(() => console.log(data), [])
+    // useEffect(() => console.log(data), [])
 
     const fetchData = async category => {
       setIsLoading(true)

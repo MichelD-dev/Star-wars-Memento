@@ -11,9 +11,11 @@ const Content = ({ list }) => {
           columns={4}
           style={{ height: '100vh', paddingTop: '11rem' }}
         >
-          <Grid.Column>
-            <DataList list={list}/>
-          </Grid.Column>
+          {list.map((category, i) => (
+            <Grid.Column key={`category_${i}`}>
+              <DataList category={category} />
+            </Grid.Column>
+          ))}
         </Grid>
       </Container>
     </>
