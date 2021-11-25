@@ -16,7 +16,7 @@ function App() {
     setFetched([...fetched, category])
     try {
       async function fetchData() {
-        const response = await fetch(`http://swapi.dev/api/${category}/?page=1`)
+        const response = await fetch(`http://swapi.dev/api/${category}`)
         const data = await response.json()
         setList([...list, [...data.results]])
         setRequest(false)
@@ -32,10 +32,12 @@ function App() {
   // }, [fetched, request])
 
   return (
-    <Container fluid style={{ backgroundColor: 'black', minHeight: '100vw' }}>
+    <Container fluid style={{
+      // backgroundColor: 'black',
+       minHeight: '100vw' }}>
       <Header fetch={withFetchedData} />
       {request ? (
-        <Dimmer active>
+        <Dimmer blurring active>
           <Loader inverted size='big' style={{ opacity: '.8' }}>
             Veuillez patienter...
           </Loader>

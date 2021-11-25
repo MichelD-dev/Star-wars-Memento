@@ -9,7 +9,11 @@ const Content = ({ list }) => {
           stackable
           centered
           columns={4}
-          style={{ height: '100vh', paddingTop: '11rem' }}
+          style={{
+            height: '100vh',
+            paddingTop: '20rem',
+            justifyContent: 'flex-start',
+          }}
         >
           {list.map((category, i) => (
             <Grid.Column key={`category_${i}`}>

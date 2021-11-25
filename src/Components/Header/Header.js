@@ -1,5 +1,4 @@
 import { Image, Menu } from 'semantic-ui-react'
-// import styles from './Header.module.css'
 
 const Header = ({ fetch }) => {
   const handleClick = category => {
@@ -13,7 +12,7 @@ const Header = ({ fetch }) => {
       fixed='top'
       stackable
       inverted
-      style={{ paddingTop: '2rem' }}
+      style={{ padding: '2rem 4rem 0' }}
     >
       <Menu.Item>
         <Image
@@ -25,11 +24,12 @@ const Header = ({ fetch }) => {
         <Menu.Item onClick={() => handleClick('films')}>Films</Menu.Item>
         <Menu.Item onClick={() => handleClick('planets')}>Planètes</Menu.Item>
         <Menu.Item onClick={() => handleClick('people')}>Personnes</Menu.Item>
-        <Menu.Item onClick={() => handleClick('starships')}>Vaisseaux</Menu.Item>
+        <Menu.Item onClick={() => handleClick('starships')}>
+          Vaisseaux
+        </Menu.Item>
         <Menu.Item onClick={() => handleClick('vehicles')}>Vehicules</Menu.Item>
         <Menu.Item onClick={() => handleClick('species')}>Espèces</Menu.Item>
       </Menu.Menu>
-      <Menu.Item></Menu.Item>
     </Menu>
   )
 }
