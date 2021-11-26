@@ -16,7 +16,9 @@ const Header = ({ fetch }) => {
     >
       <Menu.Item>
         <Image
-          src='..\assets\images\Star-Wars-Logo.png'
+          wrapped
+          size='small'
+          src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Star_Wars_Yellow_Logo.svg/1280px-Star_Wars_Yellow_Logo.svg.png'
           verticalAlign='middle'
         />
       </Menu.Item>

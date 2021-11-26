@@ -1,8 +1,8 @@
 import { Grid, Container } from 'semantic-ui-react'
+import withFetch from './HOC/withFetch'
 import DataList from './List'
-import HOC from '../HOC'
 
-const Content = ({ list }) => {
+const Content = ({ data, cat, clicked }) => {
   return (
     <>
       <Container fluid style={{ width: '90vw' }}>
@@ -16,17 +16,17 @@ const Content = ({ list }) => {
             justifyContent: 'flex-start',
           }}
         >
-          {list.map((category, i) => (
-            <Grid.Column key={`category_${i}`}>
-              <DataList category={category} />
-            </Grid.Column>
-          ))}
+          {clicked.some(item => item === cat) &&
+            data.map((category, i) => (
+              <Grid.Column key={`${category}_${i}`}>
+                <DataList data={category.results} cat={category} />
+              </Grid.Column>
+            ))}
         </Grid>
       </Container>
     </>
   )
 }
+const FetchedContent = withFetch(Content)
 
-const withFetchedDataComponent = HOC(Content, 'people')
-
-export default withFetchedDataComponent
+export default FetchedContent
