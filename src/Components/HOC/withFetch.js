@@ -19,7 +19,7 @@ function withFetch(WrappedComponent) {
     const fetchData = async category => {
       try {
         setIsLoading(true)
-        const response = await fetch(`http://swapi.dev/api/${category}`)
+        const response = await fetch(`https://swapi.dev/api/${category}`)
         if (response.ok) {
           const json = await response.json()
           saveData(json)
