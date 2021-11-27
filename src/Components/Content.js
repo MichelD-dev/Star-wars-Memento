@@ -18,8 +18,8 @@ const Content = ({ data, cat, clicked }) => {
         >
           {clicked.some(item => item === cat) &&
             data.map((category, i) => (
-              <Grid.Column key={`${category}_${i}`}>
-                <DataList data={category.results} cat={category} />
+              <Grid.Column key={`category_${i}`}>
+                <DataList data={category.results} />
               </Grid.Column>
             ))}
         </Grid>
