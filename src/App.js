@@ -8,17 +8,13 @@ function App() {
   const [category, setCategory] = useState('')
 
   const fetch = category => {
+    if (clicked.some(cat => cat === category)) return
     setClicked([...clicked, category])
     setCategory(category)
   }
 
   return (
-    <Container
-      fluid
-      style={{
-        minHeight: '100vw',
-      }}
-    >
+    <Container fluid>
       <Header fetch={fetch} />
       <FetchedContent clicked={clicked} category={category} />
     </Container>
