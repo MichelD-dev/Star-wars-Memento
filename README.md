@@ -1,4 +1,6 @@
-# Site mis en ligne sur Github Pages
+Petit exercice de fetch avec un Higher Order Component avec l'API Star Wars SWAPI.
+
+Site mis en ligne sur Github Pages
 
 https://micheld-dev.github.io/Star-wars-Memento/
 
