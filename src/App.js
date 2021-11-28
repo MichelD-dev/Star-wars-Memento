@@ -16,10 +16,12 @@ function App() {
   return (
     <Container fluid>
       <Header fetch={fetch} />
-      <FetchedContent
-        categoriesList={categoriesList}
-        clickedCategory={clickedCategory}
-      />
+      {clickedCategory && (
+        <FetchedContent
+          categoriesList={categoriesList}
+          clickedCategory={clickedCategory}
+        />
+      )}
     </Container>
   )
 }
